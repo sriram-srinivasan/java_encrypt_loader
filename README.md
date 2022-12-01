@@ -31,5 +31,5 @@ The following command works on macos. Change the name of the agent library depen
 
 This exercise is ultimately worthless, because the JVMTI interface allows an(other) agent to transform the bytes of a class at load time. In other words, the raw decrypted bytes will be available to any agent the moment DefineClass is called. See for example https://github.com/manuelpayet/javagent-decompiler
 
-An alternative is to write the launcher in C++ (instead of calling `java Main`), the user will be expected to invoke `mylauncher Main`; internally the launcher can call `JNI_CreateJavaVM`. This launcher can prevent agents from being added.
+An alternative is to write the launcher in C++ (instead of calling `java Main`), the user will be expected to invoke `mylauncher Main`; internally the launcher can call `JNI_CreateJavaVM`. This launcher can prevent agents from being added. This just makes it harder to get at the source code, but cannot prevent a hacker comfortable with patching binaries.
 
